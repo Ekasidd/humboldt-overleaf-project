@@ -1,0 +1,245 @@
+\documentclass[12pt]{article}
+
+% === PAGE GEOMETRY ===
+\usepackage[
+  paperwidth=20cm,
+  paperheight=28.7cm,
+  margin=1.5cm  % margins inside the rectangle (you can adjust)
+]{geometry}
+
+% === FONTS AND MATH ===
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}   % <-- needed for \lvert, align, etc.
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+% === GRAPHICS / FRAME ON EACH PAGE ===
+\usepackage{tikz}
+\usepackage{everypage}
+\AddEverypageHook{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \draw[thick]
+      ([xshift=1cm,yshift=1cm]current page.south west) rectangle
+      ([xshift=-1cm,yshift=-1cm]current page.north east);
+  \end{tikzpicture}%
+}
+
+% === PARAGRAPH SPACING FOR READABILITY ===
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+\title{Group Theory and Abstract Algebra (A Beginner-Friendly Start)}
+\author{Sudip Gautam}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Why This Guide?}
+This short guide starts from very familiar ideas (numbers and basic operations) and gently builds up to the first abstract structures used in algebra: \emph{monoids}, \emph{groups}, and a brief look at \emph{fields}. Every new idea comes with simple examples.
+
+\section{Sets and Operations (the very basics)}
+\textbf{A set} is just a collection of things (called \emph{elements}). Examples:
+\[
+\{1,2,3\},\quad \{\text{red},\text{green}\},\quad \mathbb{Z}=\{\ldots,-2,-1,0,1,2,\ldots\}.
+\]
+
+A \textbf{binary operation} on a set \(S\) is a rule that takes two elements of \(S\) and gives back \emph{another} element of \(S\). We write it as
+\[
+\star: S\times S \to S,\qquad (a,b)\mapsto a\star b.
+\]
+Familiar examples on numbers:
+\[
++,\quad \cdot \quad \text{on } \mathbb{Z},\,\mathbb{Q},\,\mathbb{R}.
+\]
+A non-example: subtraction on the natural numbers \(\mathbb{N}=\{1,2,3,\dots\}\) is \emph{not} a binary operation, because \(2-5\notin \mathbb{N}\).
+
+\section{Three Key Laws for \(\boldsymbol{+}\) and \(\boldsymbol{\cdot}\)}
+We review the core laws you already know from school, with clear examples.
+
+\subsection{Associative Law}
+For all \(a,b,c\in\mathbb{R}\),
+\[
+(a+b)+c = a+(b+c),\qquad (a\cdot b)\cdot c = a\cdot(b\cdot c).
+\]
+\textbf{Example.} With \(a=1,b=2,c=3\):
+\[
+(1+2)+3=1+(2+3)=6,\qquad (1\cdot 2)\cdot 3 = 1\cdot(2\cdot 3)=6.
+\]
+\textbf{Important:} Associativity is about \emph{grouping}, not about swapping order.
+
+\subsection{Commutative Law}
+For all \(a,b\in\mathbb{R}\),
+\[
+a+b=b+a,\qquad a\cdot b=b\cdot a.
+\]
+\textbf{Example.} With \(a=1,b=2\): \(1+2=2+1=3\) and \(1\cdot 2=2\cdot 1=2\).
+
+\textbf{Counterexamples.} Subtraction and division are \emph{not} commutative:
+\[
+2-5\neq 5-2,\qquad \frac{2}{5}\neq \frac{5}{2}.
+\]
+
+\subsection{Distributive Law}
+For all \(a,b,c\in\mathbb{R}\),
+\[
+c\cdot(a+b)=c\cdot a + c\cdot b.
+\]
+\textbf{Example.} With \(a=1,b=2,c=3\):
+\[
+3\cdot(1+2)=3\cdot 1 + 3\cdot 2=9.
+\]
+
+\subsection*{Common Pitfalls (very important)}
+\begin{itemize}
+  \item Mixing up \textbf{associative} (regroup) with \textbf{commutative} (swap order).
+  \item Assuming subtraction/division are associative or commutative (they are not).
+  \item Forgetting that not every operation keeps you inside the set (closure can fail).
+\end{itemize}
+
+\section{Identity and Inverses (undoing an operation)}
+\textbf{Identity elements.} For all \(a\in\mathbb{R}\),
+\[
+a+0=a,\qquad a\cdot 1=a.
+\]
+So \(0\) is the additive identity, \(1\) is the multiplicative identity.
+
+\textbf{Inverses.} For every \(a\in\mathbb{R}\) there is an additive inverse \(-a\) with
+\[
+a+(-a)=0.
+\]
+For every nonzero \(a\in\mathbb{R}\) there is a multiplicative inverse \(a^{-1}\) with
+\[
+a\cdot a^{-1}=1.
+\]
+\textbf{Examples.} \(5+(-5)=0\); \(2\cdot \frac12=1\). Note: \(0\) has \emph{no} multiplicative inverse.
+
+\textbf{Handy facts.} For any real \(a\),
+\[
+0\cdot a=0,\qquad -(-a)=a.
+\]
+\textbf{Cancellation (when allowed).} If \(a\neq 0\) and \(ab=ac\) (over real numbers), then \(b=c\).
+
+\section{From Rules to Structures: Monoids and Groups}
+We now ``package'' a set together with a binary operation and the laws it satisfies.
+
+\subsection{Monoids}
+\textbf{Definition (Monoid).} A monoid is a triple \((M,\star,e)\) where
+\begin{itemize}
+  \item \(M\) is a set,
+  \item \(\star: M\times M\to M\) is a binary operation (closure),
+  \item \(e\in M\) is an identity element,
+\end{itemize}
+such that for all \(a,b,c\in M\):
+\[
+(a\star b)\star c=a\star(b\star c)\quad\text{(associativity)},\qquad e\star a=a=a\star e\quad\text{(identity)}.
+\]
+If also \(a\star b=b\star a\) for all \(a,b\), the monoid is \emph{commutative} (or \emph{abelian}).
+
+\textbf{Beginner examples.}
+\begin{itemize}
+  \item \(\bigl(\mathbb{N}_0,+,0\bigr)\) with \(\mathbb{N}_0=\{0,1,2,\dots\}\). (Associative, identity \(0\), commutative.)
+  \item \(\bigl(\mathbb{N},\cdot,1\bigr)\). (Associative, identity \(1\), commutative.)
+  \item \(\bigl(\mathrm{Map}(X,X),\circ,\mathrm{id}_X\bigr)\): all functions \(X\to X\) under composition \(\circ\) with identity map \(\mathrm{id}_X\). This is a monoid that is \emph{usually not commutative}; it is commutative only if \(\lvert X\rvert=1\).
+\end{itemize}
+
+\textbf{Non-examples.} \((\mathbb{Z},-,0)\) is not a monoid because subtraction is not associative and \(0\) is not a two-sided identity for subtraction.
+
+\subsection{Groups}
+\textbf{Definition (Group).} A group is a monoid \((G,\star,e)\) in which every element has an inverse:
+\[
+\forall a\in G\ \exists a^{-1}\in G:\quad a\star a^{-1}=e=a^{-1}\star a.
+\]
+If also \(a\star b=b\star a\) for all \(a,b\), the group is \emph{abelian}.
+
+\textbf{Beginner examples.}
+\begin{itemize}
+  \item \(\bigl(\mathbb{Z},+,0\bigr)\): integers under addition. Inverse of \(a\) is \(-a\). (Abelian.)
+  \item \(\bigl(\mathbb{R}\setminus\{0\},\cdot,1\bigr)\): nonzero reals under multiplication. Inverse of \(a\) is \(a^{-1}\). (Abelian.)
+  \item \(\bigl(\mathrm{GL}_n(\mathbb{R}),\cdot,I_n\bigr)\): all invertible \(n\times n\) real matrices under matrix multiplication. Inverse is the usual matrix inverse. \emph{Not} abelian for \(n\ge 2\).
+\end{itemize}
+\subsection{Abelian group}
+A \emph{group} \((G,\star)\) is called \emph{abelian} (or \emph{commutative}) if, in addition to the usual group properties
+(closure, associativity, identity \(e\), inverses), it also satisfies
+\[
+\forall\,a,b\in G:\quad a\star b = b\star a.
+\]
+In words: the order of combining elements does not matter.
+
+\emph{Easy examples.}
+\begin{itemize}
+  \item \((\mathbb{Z},+)\): integers under addition. Identity \(0\); inverse of \(a\) is \(-a\); and \(a+b=b+a\).
+  \item \((\mathbb{R},+)\), \((\mathbb{Q},+)\): reals/rationals under addition (same reasoning).
+  \item \((\mathbb{R}\setminus\{0\},\cdot)\): nonzero reals under multiplication. Identity \(1\); inverse \(a^{-1}\); and \(ab=ba\).
+  \item \((\mathbb{Z}_n,+)\): integers mod \(n\) with addition mod \(n\), e.g.\ in \(\mathbb{Z}_5\), \(2+4\equiv 1\ (\text{mod }5)\) and \(4+2\equiv 1\).
+  \item \((\mathbb{R}^n,+)\): vectors under vector addition; \(0\) (the zero vector) is identity and \(u+v=v+u\).
+\end{itemize}
+
+\emph{Quick check (worked):} In \((\mathbb{Z},+)\), we have
+\[
+(a+b)+c=a+(b+c)\quad\text{(associative)},\quad 0+a=a\quad\text{(identity)},\quad a+(-a)=0\quad\text{(inverse)},\quad a+b=b+a\quad\text{(commutative)}.
+\]
+
+Hence \((\mathbb{Z},+)\) is an abelian group.
+
+\emph{Short non-example (to see the difference):}
+The set of invertible \(2\times 2\) real matrices under multiplication is a group but \emph{not} abelian. For example,
+\[
+A=\begin{pmatrix}1&1\\[2pt]0&1\end{pmatrix},\quad
+B=\begin{pmatrix}1&0\\[2pt]1&1\end{pmatrix},\qquad
+AB=\begin{pmatrix}2&1\\[2pt]1&1\end{pmatrix}\neq
+\begin{pmatrix}1&1\\[2pt]1&2\end{pmatrix}=BA.
+\]
+So, in general, \(AB\neq BA\).
+\subsection*{Checklist (to classify a structure quickly)}
+Given a set and an operation:
+\begin{enumerate}
+  \item Is it \textbf{closed}? (Result stays in the set.)
+  \item Is it \textbf{associative}?
+  \item Is there an \textbf{identity} element?
+  \item Does every element have an \textbf{inverse}?
+  \item Is it \textbf{commutative}?
+\end{enumerate}
+Answers \(\Rightarrow\) monoid/group/abelian group.
+
+\section{A Few More Monoids You Will See}
+\begin{itemize}
+  \item \(\bigl(\mathbb{Q},+,0\bigr),\ \bigl(\mathbb{R},+,0\bigr)\): addition on rationals/reals (commutative).
+  \item \(\bigl(\mathbb{Q},\cdot,1\bigr),\ \bigl(\mathbb{R},\cdot,1\bigr)\): multiplication (commutative). Note: \(0\) itself is not invertible here, which is why these are \emph{not} groups.
+  \item \(\bigl(\mathrm{Mat}_{m\times n}(\mathbb{R}),+,0\bigr)\): all \(m\times n\) matrices under addition (commutative monoid).
+  \item \(\bigl(\mathrm{Mat}_{n\times n}(\mathbb{R}),\cdot,I_n\bigr)\): all \(n\times n\) matrices under multiplication (monoid; commutative only when \(n=1\)).
+  \item \(\bigl(\{e\},\star,e\bigr)\): the \emph{trivial monoid} with one element; automatically commutative.
+\end{itemize}
+
+
+\section{Exercises }
+\subsection*{Exercise 1 (associativity check)}
+Is subtraction associative on \(\mathbb{Z}\)? Compute \((5-3)-1\) and \(5-(3-1)\).
+\[
+(5-3)-1=2-1=1,\qquad 5-(3-1)=5-2=3\ (\neq 1).
+\]
+So subtraction is \emph{not} associative.
+
+\subsection*{Exercise 2 (classify the structure)}
+Is \((\mathbb{Z},\cdot,1)\) a group? No: elements like \(2\) have no multiplicative inverse in \(\mathbb{Z}\).
+
+\subsection*{Exercise 3 (function monoid intuition)}
+Let \(X=\{a,b\}\). Define \(f,g:X\to X\) by \(f(a)=b,f(b)=b\) and \(g(a)=a,g(b)=a\). Check \(f\circ g\) and \(g\circ f\) are different, so composition is not commutative:
+\[
+(f\circ g)(b)=f(g(b))=f(a)=b,\qquad (g\circ f)(b)=g(f(b))=g(b)=a.
+\]
+
+\section{Glossary}
+\textbf{Set:} a collection of objects (elements). \\
+\textbf{Element:} a member of a set. \\
+\textbf{Binary operation:} a rule combining two elements to get one element. \\
+\textbf{Identity:} an element that changes nothing when you combine with it. \\
+\textbf{Inverse:} an element that undoes another element under the operation. \\
+\textbf{Monoid:} associative + identity. \\
+\textbf{Group:} monoid + inverses for all elements. \\
+\textbf{Abelian:} commutative. \\
+\textbf{Field:} two operations (\(+\), \(\cdot\)) with all the usual arithmetic laws; you can add, subtract, multiply, and divide (by nonzero).
+
+\end{document}

@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage[most]{tcolorbox}
+\begin{document}
+\tcbset{
+  mybox/.style={
+    width=25cm,
+    height=18cm,
+    colframe=black,
+    colback=white,
+    boxrule=1pt,
+    halign=center,
+    valign=center,
+    sharp corners,
+    left=1cm,
+    right=1cm,
+    top=1cm,
+    bottom=1cm
+  }
+}
+
+\tcbset{every box/.style={before skip=0pt, after skip=0pt}}
+
+\tcolorbox[mybox]
+
+\title{Group Theory and Abstract Algebra}
+\author{Sudip Gautam }
+\date{\today}
+
+
+
+\maketitle
+
+\section{Introduction}
+
+\endtcolorbox
+\end{document}
