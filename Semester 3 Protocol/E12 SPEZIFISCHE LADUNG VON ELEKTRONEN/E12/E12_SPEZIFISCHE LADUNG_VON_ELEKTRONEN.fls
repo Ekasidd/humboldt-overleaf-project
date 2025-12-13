@@ -1,0 +1,6 @@
+PWD /Users/macharth/Documents/Coding/GitHub/humboldt-overleaf-project/Semester 3 Protocol/E12 SPEZIFISCHE LADUNG VON ELEKTRONEN/E12
+INPUT /usr/local/texlive/2025basic/texmf.cnf
+INPUT /usr/local/texlive/2025basic/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2025basic/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /Users/macharth/Documents/Coding/GitHub/humboldt-overleaf-project/Semester 3 Protocol/E12 SPEZIFISCHE LADUNG VON ELEKTRONEN/E12/E12_SPEZIFISCHE LADUNG_VON_ELEKTRONEN.tex
+OUTPUT E12_SPEZIFISCHE LADUNG_VON_ELEKTRONEN.log

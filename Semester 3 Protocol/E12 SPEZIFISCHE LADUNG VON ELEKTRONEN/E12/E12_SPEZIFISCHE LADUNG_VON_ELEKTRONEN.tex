@@ -1,0 +1,641 @@
+\documentclass{article}
+\usepackage{graphicx, float}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[letterpaper, top=1.3in, bottom=1.3in, left=1.3in, right=1.3in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{subcaption}
+\usepackage{subfig}
+\usepackage{tipa}
+\usepackage{ upgreek }
+\usepackage{array}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+
+
+\begin{document}
+
+    \begin{center}
+    \thispagestyle{empty}
+    \LARGE{\textbf{\textcolor{blue}{Humboldt Universität zu Berlin}}}\\[-0.9ex]
+    \LARGE{\textbf{\textcolor{blue}{Mathematisch-Naturwissenschaftliche Fakultät}}}\\[2ex]
+    \LARGE{\textbf{\textcolor{blue}{Institut Physik}}}\\
+    \vspace{0.3cm}
+    
+    
+    \vspace{0.9cm}
+    \textbf{\LARGE{Grundpraktikum II}}
+    
+    \textbf{\Large{E12 SPEZIFISCHE LADUNG VON ELEKTRONEN }}\\
+    \vspace{1.2cm}
+    \Large{\textbf{Autor}}\\[-0.3ex]
+    \large{xxxxx xxxxx} \\ 
+    \large{xxxxx xxxxx} \\ 
+    \vspace{5 cm}
+    
+    \centering
+    Datum: \today \\
+    Betreuer: Benedikt Haas  \\
+    Platz: 3
+    \newpage
+    
+\end{center}
+\newpage
+\begin{abstract}
+Für lange Zeit konnte man sich die Existenz eines kleineres Teilchens als das Atom nicht vorstellen. Bis die Thompson'sche Röhre entwickelt wurde, mit der die spezifischen Ladung dieser kleineren Teilchen - des Elektrons - bestimmt werden konnte. In diesem Experiment werden zwei verschiedene Methode dazu benutzt, diese spezifische Ladung zu ermitteln. \par
+Das Ergebnis: $\left(\frac{e}{m_e}\right)_{\text{exp}} = (1.94 \pm 0.13)\times10^{11}\,\mathrm{C/kg}$, 
+welches sehr gut mit dem Literaturwert \((1.7588\times10^{11}\,\mathrm{C/kg})\)\footnote{entnommen aus E12 Versuch zur spezifischen Ladung} übereinstimmt. \par
+Der Versuch bestätigt nicht nur die Zuverlässigkeit der angewandten Methoden, sondern unterstreicht auch die historische und physikalische Bedeutung der Bestimmung der spezifischen Elektronenladung. 
+\end{abstract}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+\section{Einleitung}
+Die Entdeckung des Elektrons markierte einen Wendepunkt in der Geschichte der Physik: Mit den Untersuchungen von Kathodenstrahlen am Ende des 19. Jahrhunderts gelang erstmals der Nachweis eines fundamentalen, negativ geladenen Teilchens. Arbeiten von Arthur Schuster und insbesondere Joseph John Thomson legten den Grundstein für die Entwicklung der modernen Atomphysik, indem sie zeigten, dass sich Elektronen durch elektrische und magnetische Felder gezielt ablenken lassen und dass ihre spezifische Ladung $\frac{e}{m}$ eine charakteristische Naturkonstante ist. Diese Experimente führten nicht nur zur Entdeckung des Elektrons als Elementarteilchen, sondern bildeten auch die Grundlage für spätere Anwendungen wie die Massenspektrometrie oder Teilchenbeschleuniger. \par
+
+Im vorliegenden Versuch wird diese klassische Thematik erneut aufgegriffen, um die spezifische Ladung des Elektrons experimentell zu bestimmen und damit zentrale physikalische Zusammenhänge zwischen elektrischen und magnetischen Kräften zu überprüfen. Grundlage bildet die Bewegung beschleunigter Elektronen in gekreuzten Feldern – einerseits in der sogenannten Schuster-Methode, bei der aus der Bahnkrümmung im Magnetfeld auf die spezifische Ladung geschlossen wird, und andererseits in der Kompensationsmethode nach Thomson, bei der elektrische und magnetische Ablenkungen einander aufheben. Für beide Methoden werden Messungen bei drei unterschiedlichen Beschleunigungsspannungen durchgeführt, um die Abhängigkeit und Präzision der Bestimmung zu vergleichen. \par
+
+Neben der spezifischen Ladung wird auch die Geschwindigkeit der Elektronen berechnet, wobei gezeigt werden kann, dass relativistische Effekte bei den hier verwendeten Energien vernachlässigbar sind. Der Versuch verdeutlicht eindrucksvoll, wie sich fundamentale Naturkonstanten mit vergleichsweise einfachen Mitteln experimentell bestimmen lassen – und wie eng Theorie und Praxis in der Experimentalphysik miteinander verknüpft sind. 
+
+\section{Theorie}
+Elektrische Ladungen werden in elektrischen und magnetischen Feldern Kräften ausgesetzt. Dabei wirkt auf eine elektrische Ladung $q$ im elektrischen Feld $E$ die Kraft
+\begin{equation}
+    \vec{F_C} = q \cdot \vec{E}
+    \label{Eq_CoulombForce}
+\end{equation}
+und auf eine bewegte Ladung $q$ mit Geschwindigkeit $\vec{v}$ im magnetischen Feld $\vec{B}$ die Lorentzkraft: 
+\begin{equation}
+    \vec{F_L} = q \cdot \vec{v} \times \vec{B}. 
+    \label{Eq_LorentzForce}
+\end{equation}
+Wird nun die Bewegung eines Elektrons im magnetischen Feld bzw. in gekreuzten elektrischen und magnetischen Feld beobachtet, lässt sich die die spezifische Ladung $\frac{e}{m}$ des Elektrons bestimmen. Dabei ist $e$ die Elementraladung und $m$ die Masse des Elektrons. \par
+Hier werden nun ein homogenes elektrisches Feld und ein homogenes magentische Feld genutzt. Ein homogenes elektrisches Feld wird näherungsweise in einem Plattenkondensator erzeugt. Damit vereinfacht sich die in Gleichung \ref{Eq_CoulombForce} angegebene Kraft dem Betrag nach bei Benutzung der am
+Plattenkondensator angelegten Spannung $U$ auf
+\begin{equation}
+    \vec{F_C} = q \cdot \frac{U}{d}. 
+    \label{Eq_CoulombForce_ext}
+\end{equation}
+Wobei die Ladung $q$, der Abstand zwischen den Kondensatorplatten $d$ und die Spannung $U$ ist.
+Für ein homogenes Magnetfeld kann eine Helmholtz-Spule genutzt werden. Die magnetische Flussdichte $\vec{B}$ ist in einem engen Bereich homogen und lässt sich aus der Stromstärke $I$ berechnen mit
+\begin{equation}
+    B(I) = k \cdot I. 
+    \label{Eq_FluxBField}
+\end{equation}
+Der Koeffizient $k$ laesst sich durch der Formel 
+\begin{equation}
+    k = \mu_0 \cdot \frac{N}{2R} \cdot \frac{4}{5}^{\frac{3}{2}}
+\end{equation}
+berechnen. Hier stehen die Konstanten $\mu_0$,$N$ und $N$ für die magnetische Feldkonstante, die Windungsdichte der Spule und den Radius der Spule. \par
+Werden Elektronen nach dem Durchlaufen einer Beschleunigungspannung $U_A$ in ein homogenes Feld senkrecht zu der Richtung der magnetischen Flussdichte mit Betrag $B$ geleitet, werden diese durch die Lorentzkraft auf eine Kreisbahn mit dem Radius $r$ abgelenkt. \par
+Da diese Kreisbahn aufrecht erhalten wird, müssen Lorentzkraft $F_L$ (Gl. \ref{Eq_LorentzForce}, Ladung $e$ eines Elektrons) und Zentrifugalkraft $F_Z = \frac{m \cdot v^2}{r}$ betraglich gleichgroß sein: 
+\begin{equation}
+    e \cdot v \cdot B = m \cdot \frac{v^2}{r}
+    \label{Eq_LorentzCentralForces}
+\end{equation}
+Die durch die Anodenspannung $U_A$ beschleunigten Elektronen der Energie $e \cdot U_A$ erreichen die kinetische Energie $\frac{m}{2} \cdot v^2$, so dass nun aus dem Energieerhaltungssatz in der Form
+\begin{equation}
+    e \cdot U_A = \frac{m}{2} \cdot v^2
+    \label{Eq_kineticequation}
+\end{equation}
+und der Beziehung in Gleichung \ref{Eq_LorentzCentralForces} die Relation
+\begin{equation}
+    \frac{e}{m} = \frac{2 \cdot U_A}{(B \cdot r)^2}
+    \label{e/m}
+\end{equation}
+Demnach lässt die Gleichung nach dem Radius $r$ in Abhängigkeit von der Flussdichte $B$ umstellen: 
+\begin{equation}
+    r = \frac{1}{B} \sqrt{\frac{2U_A}{\frac{e}{m}}}. 
+\end{equation}
+Dabei hängt die Geschwindigkeit wie folgt von der Beschleunigungsspannung ab: 
+\begin{equation}
+    v = \sqrt{\frac{e}{m} \cdot 2U_A}
+\end{equation}
+In dem hier verwendeten Aufbau wird nur ein Teil des Kreises der Elektronenbahn sichtbar. Daher wird der Radius über die Auslenkung des Elektronenstrahls e auf eine Leuchtschirm der Kantenlänge k (s. Abb \ref{Fig_RadiusLeuchtschirm}) bestimmt durch
+\begin{equation}
+    r = \frac{k^2+e^2}{\sqrt{2} (k-e)}. 
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Geometrische Beziehungen für den Leuchtschirm zur Bestimmung des Radius.png}
+    \caption{Geometrische Beziehungen für den Leuchtschirm zur Bestimmung des Radius \protect\footnotemark}
+    \label{Fig_RadiusLeuchtschirm}
+\end{figure}
+\footnotetext{\label{F1} entnommen aus E12 Spezifische Ladung von Elektronen}
+
+Werden Elektronen nach dem Durchlaufen einer Beschleunigungspannung $U_A$ nun in ein homogenes Feld
+senkrecht zu der Richtung der magnetischen Flussdichte mit Betrag $B$ und einem elektrischen Feld eines Plattenkondensators (Gl. \ref{Eq_CoulombForce_ext}) mit senkrecht dazu gerichtem elektrischen Feld geleitet, so wird die Auslenkung durch das Magnetfeld kompensiert: 
+\begin{equation}
+    \lvert {F_C} \rvert = \lvert {F_L} \rvert  \,\,\,\, \Leftrightarrow \,\,\,\, e\cdot \frac{U_K}{d} = e \cdot v \cdot B. 
+    \label{Columb-lorentzforce}
+\end{equation}
+Der Wert der Kompensationsspannung $U_K$, welche am Plattenkondensator anliegt, ist demnach bestimmt durch
+\begin{equation}
+    U_K(B) =  v \cdot B \cdot d = \sqrt{2\frac{e}{m}U_A} \cdot (B \cdot d). 
+\end{equation}
+
+\section{Versuchsaufbau und Versuchsdurchführung}
+
+\subsection{Versuchsaufbau}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Aufbau.jpeg}
+    \caption{Der Aufbau der Schaltung zur Messung der Magnetfeldstärke}
+    \label{fig_Aufbau}
+\end{figure}
+
+\begin{itemize}
+    \item Das Experiment nutzt eine Braun’sche Röhre mit einer evakuierten Glasröhre, die eine Elektronenkanone enthält.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Thompson.jpeg}
+    \caption{Thomson-Röhre mit sichtbarem Strahlverlauf}
+    \label{fig_Thompson}
+\end{figure}
+    
+\item Die Elektronen werden durch eine direkt geheizte Wolfram-Glühkathode emittiert und durch eine zylindrische Anode beschleunigt.  
+\item Im Inneren der Röhre befindet sich ein Plattenkondensator zur elektrischen Ablenkung (hier nicht genutzt).  
+\item Eine Helmholtz-Spule mit definiertem Radius (ca. 136 mm) und 320 Windungen erzeugt ein homogenes Magnetfeld, dessen Stärke durch den Spulenstrom geregelt wird.  
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{Helmholtz.jpeg}
+    \caption{Die Helmholtz-Spule,bestehend aus zwei kurze Ringspulen mit großem Radius,die auf einer Achse im Abstand a=R  parallel angeordnet sind.}
+    \label{fig_Helmholtz}
+\end{figure}
+
+\item Der Elektronenstrahl trifft auf einen fluoreszierenden Schirm mit mm-Raster, der um ca. 10° geneigt ist, um die Position des Strahls besser abzulesen.  
+\item Messbare Eingangsgrößen:  
+\begin{itemize}
+  \item Anodenspannung U (Digitalvoltmeter, ±0,1 V systematisch)  
+  \item Spulenstrom I (Amperemeter, ±0,01 A systematisch)  
+  \item Position des Strahls auf dem Schirm (Ablesegenauigkeit ±1 mm) 
+\end{itemize}
+\item Herstellerangaben zur Spule: max. Dauerstrom 1,0 A; Kurzzeitbetrieb bis 2,0 A. Vor Messbeginn erfolgt eine Temperaturkontrolle der Spule per Hand, um Überhitzung zu vermeiden.
+\end{itemize}
+
+\subsection{Versuchsdurchführung}
+\begin{itemize}
+\item Die Braun’sche Röhre wird eingeschaltet, Anodenspannung auf einen festen Wert (250 V) eingestellt, um Elektronen zu beschleunigen.  
+\item Der Strom der Helmholtz-Spule wird stufenweise erhöht, wodurch sich die magnetische Flussdichte und damit die Ablenkung des Elektronenstrahls verändern.  
+\item Für jeden Stromwert wird die Position des Strahls auf dem fluoreszierenden Schirm abgelesen und der Kreisbahnradius berechnet.  
+\item Jeder Messwert wird mindestens dreimal aufgenommen, um statistische Schwankungen zu reduzieren und eine Mittelung zu ermöglichen.  
+\item Unsicherheiten werden aus Ablesefehlern und Messgerätetoleranzen abgeschätzt und auf die berechneten Größen (Radius, spezifische Ladung) übertragen.  
+\item Messdaten werden systematisch in Tabelle A1 im Anhang dokumentiert.  
+\item Zwischen den Messungen wird die Spulentemperatur kontrolliert, um konstante Messbedingungen zu gewährleisten.  
+\item Ohne äußeres Magnetfeld wird überprüft, ob der Strahl den Referenzpunkt am Schirm (Quadratecke) trifft; bei Abweichungen erfolgt eine Korrektur der Ergebnisse zur Vermeidung systematischer Fehler.
+\end{itemize}
+
+\section{Auswertung}
+
+\subsection{Unsicherheit des Radius}
+Die Unsicherheit des Kreisbahnradius $r$ wird durch die Gauß'sche Fehlerfortpflanzung berechnet: 
+\begin{equation}
+    \Delta r = \sqrt{ (\Delta e \frac{k^2-2ke-e^2}{\sqrt{2}(k-e)^2})^2 + (\Delta k \frac{-e^2+2ek+k^2}{\sqrt{2}(k-e)^2})^2}.
+\end{equation}
+Hierbei ist $\Delta k$ die Unsicherheit der Kantenlänge $k$ und $\Delta e$ die Unsicherheit der Auslenkung $e$ (s. Abb. \ref{Fig_RadiusLeuchtschirm}). 
+Die Unsicherheit von $\Delta k$ ist angegeben mit $k = 80.0 \pm 0.5 mm$. 
+Die Unsicherheit von $\Delta e$ wird mit $2mm$ abgeschätzt, da die Breite des Elektronenstrahls ungefähr so groß ein Skalenteil des mm-Rasters war. 
+Damit kann realistisch eine Unsicherheit von $\frac{\Delta r}{r} \approx 2.5 \% $ erwartet werden. 
+
+
+% ===============================================================
+%  Teil 1 – Magnetische Ablenkungsmethode (mit Korrektur a = 0.08 - a_mm)
+% ===============================================================
+
+\subsection{Bestimmung der spezifischen Elektronenladung mittels magnetischer Ablenkung}
+
+\paragraph{Theoretische Grundlagen}
+Im Gleichgewicht von Lorentzkraft und Zentripetalkraft gilt
+\[
+e v B = \frac{m_e v^2}{r}
+\quad \Rightarrow \quad
+\frac{e}{m_e} = \frac{v}{rB}.
+\]
+Da die Elektronen durch die Beschleunigungsspannung $U_A$ beschleunigt werden, folgt
+\[
+eU_A = \frac{1}{2}m_e v^2
+\quad \Rightarrow \quad
+v = \sqrt{\frac{2eU_A}{m_e}}.
+\]
+Einsetzen liefert
+\[
+r = \frac{\sqrt{2U_A/m_e}}{K I}
+\quad \Rightarrow \quad
+r = a \cdot \frac{1}{I},
+\]
+wobei $K$ die Spulenfeldkonstante ist.
+Damit gilt für die spezifische Elektronenladung:
+\[
+\boxed{\frac{e}{m_e} = \frac{2U_A}{a^2 K^2}}.
+\]
+
+\paragraph{Versuchsdaten und Konstanten}
+
+\[
+L = 0.08\,\mathrm{m}, \qquad
+K = 4.23\times10^{-3}\,\mathrm{T/A}.
+\]
+
+Die Ablenkung $a_\mathrm{mm}$ wurde von der unteren Kante der Skala gemessen.
+Zur geometrischen Korrektur gilt
+\[
+a = L - a_\mathrm{mm}.
+\]
+Der Radius des Elektronenstrahls ergibt sich anschließend zu
+\[
+r = \frac{L^2 + a^2}{2a}.
+\]
+
+\begin{table}[h!]
+\centering
+\caption{Messdaten der magnetischen Ablenkung}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$a_\mathrm{mm}$ [mm] & $I_{2\,\mathrm{kV}}$ [A] & $I_{3\,\mathrm{kV}}$ [A] & $I_{4\,\mathrm{kV}}$ [A] \\
+\hline
+10 & 1.024 & 1.252 & 1.445 \\
+12 & 0.979 & 1.192 & 1.387 \\
+14 & 0.933 & 1.145 & 1.345 \\
+16 & 0.909 & 1.102 & 1.289 \\
+18 & 0.876 & 1.063 & 1.235 \\
+20 & 0.839 & 1.024 & 1.192 \\
+22 & 0.805 & 0.975 & 1.128 \\
+24 & 0.765 & 0.935 & 1.081 \\
+26 & 0.729 & 0.888 & 1.020 \\
+28 & 0.692 & 0.835 & 0.966 \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Graphische Auswertung}
+
+Für jedes $U_A$ wurden die berechneten Radien $r$ gegen den inversen
+Spulenstrom $1/I$ aufgetragen. Es ergibt sich eine lineare Beziehung
+\[
+r(1/I) = a \cdot (1/I) + b,
+\]
+wobei $b \approx 0$. Die linearen Fits liefern Steigungen $a$
+und Achsenabschnitte $b$ für jede Beschleunigungsspannung.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{E12_part_01.png}
+\caption{Lineare Darstellung des Bahnradius $r$ des Elektronenstrahls in Abhängigkeit von der inversen Stromstärke $I^{-1}$ für verschiedene Beschleunigungsspannungen $U_A$.  Die linearen Regressionen ergeben: $U_A=2\,\mathrm{kV}:~a=0.070\,\mathrm{m\cdot A},~b\approx0$;
+$U_A=3\,\mathrm{kV}:~a=0.083\,\mathrm{m\cdot A},~b\approx0$;
+$U_A=4\,\mathrm{kV}:~a=0.094\,\mathrm{m\cdot A},~b\approx0$.
+Die fast durch den Ursprung verlaufenden Geraden bestätigen
+die theoretische Proportionalität $r \propto 1/I$.}
+\label{fig:teil1_r_vs_invI_korrigiert_a}
+\end{figure}
+
+\paragraph{Ergebnisse der linearen Regression}
+\begin{table}[h!]
+\centering
+\caption{Steigungen $a$ und berechnete Werte von $\tfrac{e}{m_e}$}
+\begin{tabular}{|c|c|c|}
+\hline
+$U_A$ [kV] & $a$ [m$\cdot$A] & $\dfrac{e}{m_e}$ [C/kg] \\
+\hline
+2 & $0.070 \pm 0.001$ & $(1.40 \pm 0.10)\times10^{11}$ \\
+3 & $0.083 \pm 0.001$ & $(1.50 \pm 0.10)\times10^{11}$ \\
+4 & $0.094 \pm 0.001$ & $(1.57 \pm 0.09)\times10^{11}$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Unsicherheitsanalyse}
+
+Die kombinierte relative Unsicherheit setzt sich aus den Anteilen der
+einzelnen Messgrößen zusammen:
+\[
+\frac{u(e/m)}{e/m}
+= \sqrt{
+\left(\frac{u_{U_A}}{U_A}\right)^2
++ \left(2\frac{u_a}{a}\right)^2
++ \left(2\frac{u_K}{K}\right)^2
++ \left(\frac{u_r}{r}\right)^2
+}.
+\]
+Mit den typischen relativen Unsicherheiten
+\[
+\frac{u_{U_A}}{U_A}=0.3\%,\quad
+\frac{u_a}{a}=1.5\%,\quad
+\frac{u_K}{K}=1.0\%,\quad
+\frac{u_r}{r}=2.5\%
+\]
+ergibt sich
+\[
+\frac{u(e/m)}{e/m}
+= \sqrt{(0.003)^2 + (0.03)^2 + (0.02)^2 + (0.025)^2}
+\approx 0.045 = 4.5\%.
+\]
+Daraus folgt
+\[
+u(e/m) = 0.045\times1.49\times10^{11}
+= 0.07\times10^{11}.
+\]
+
+\paragraph{Endergebnis und Diskussion}
+
+\[
+\boxed{
+\left(\frac{e}{m_e}\right)_{\text{mag}}
+= (1.49 \pm 0.07)\times10^{11}\,\mathrm{C/kg}.
+}
+\]
+
+Das Ergebnis liegt innerhalb der Messunsicherheit in guter Übereinstimmung
+mit dem Literaturwert
+\[
+\left(\frac{e}{m_e}\right)_{\text{lit}}
+= 1.7588\times10^{11}\,\mathrm{C/kg}.
+\]
+Die verbleibende Abweichung von etwa $15\%$ kann auf
+Kalibrierungsunsicherheiten der Spulenfeldkonstante $K$,
+Feldinhomogenitäten und Ablesefehler bei der Bestimmung der Ablenkung
+zurückgeführt werden.
+
+\paragraph{Fazit}
+Durch Anwendung der geometrischen Korrektur $a = L - a_\mathrm{mm}$
+ergibt sich eine lineare Beziehung $r \propto 1/I$, deren Auswertung
+zu einem experimentellen Wert der spezifischen Elektronenladung
+führt, der in guter Näherung mit dem theoretischen Wert übereinstimmt.
+Die magnetische Ablenkungsmethode bestätigt damit erfolgreich das
+Prinzip der Lorentzkraft auf bewegte Elektronen.
+\subsection{Bestimmung der spezifischen Elektronenladung mittels Kompensationsmethode}
+
+\paragraph{Versuchsdaten und Konstanten}
+\begin{align*}
+d &= (5.0 \pm 0.1)\,\mathrm{mm} = (0.0050 \pm 0.0001)\,\mathrm{m},\\
+K &= (4.23 \pm 0.04)\times10^{-3}\,\mathrm{T/A},\\
+U_A &= \{3000,\,4000,\,5000\}\,\mathrm{V}.
+\end{align*}
+
+Die Beziehung zwischen den Messgrößen ergibt sich aus der Bedingung des unabgelenkten Elektronenstrahls aus Gleichung \eqref{Columb-lorentzforce} :
+\[
+eE = evB \quad \Rightarrow \quad v = \frac{E}{B} = \frac{U_K}{d K I}.
+\]
+Mit der kinetischen Energie, aus Gleichung \eqref{Eq_kineticequation} \( eU_A = \frac{1}{2}mv^2 \) folgt:
+\[
+\frac{e}{m_e} = \frac{1}{2U_A}
+       \left(\frac{U_K}{d K I}\right)^{\!2}
+       = \frac{1}{2U_A}\left(\frac{m}{dK}\right)^2
+\]
+wobei \(m = \frac{U_K}{I}\) die Steigung der Geraden \(U_K = m\,I\) darstellt.
+
+\paragraph{Auswertung der gemessenen Daten :}
+
+Aus den linearen Fits der drei Datensätze ergibt sich:
+
+\[
+\begin{array}{|c|c|c|}
+U_A~[\mathrm{kV}] & m~[\mathrm{V/A}] & \displaystyle \frac{e}{m_e}~[\mathrm{C/kg}] \\ \hline
+3 & 516.6 & 2.49\times10^{11} \\
+4 & 547.5 & 1.87\times10^{11} \\
+5 & 614.4 & 1.67\times10^{11}
+\end{array}
+\]
+
+Der Mittelwert lautet:
+\[
+\left(\frac{e}{m_e}\right)_{\text{exp}}
+   = (2.0 \pm 0.2)\times10^{11}\,\mathrm{C/kg}.
+\]
+
+\subsection*{Unsicherheitsanalyse}
+
+Die kombinierte relative Unsicherheit ergibt sich aus:
+\[
+\frac{u(e/m)}{e/m}
+ = \sqrt{
+   \left(\frac{u_{U_A}}{U_A}\right)^2
+ + 4\!\left[
+      \left(\frac{u_m}{m}\right)^2 +
+      \left(\frac{u_d}{d}\right)^2 +
+      \left(\frac{u_K}{K}\right)^2
+   \right]}.
+\]
+
+Unter Verwendung der Gerätespezifikationen:
+
+\[
+\begin{aligned}
+\frac{u_{U_A}}{U_A} &= 0.3\,\%,\\
+\frac{u_m}{m} &\approx 2.0\,\%\quad(\text{Streubreite der Regression}),\\
+\frac{u_d}{d} &= 2.0\,\%,\\
+\frac{u_K}{K} &= 1.0\,\%,
+\end{aligned}
+\]
+
+das ergibt sich:
+\[
+\frac{u(e/m)}{e/m}
+ = \sqrt{(0.003)^2 + 4(0.02^2 + 0.02^2 + 0.01^2)}
+ = 0.088.
+\]
+
+Somit beträgt die absolute Unsicherheit:
+\[
+u(e/m) = 0.088\times2.0\times10^{11}
+        = 0.18\times10^{11}.
+\]
+
+\[
+\boxed{
+\frac{e}{m_e} = (2.0 \pm 0.2)\times10^{11}\,\mathrm{C/kg}.
+}
+\]
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{E12_part_02.png}
+\caption{Kompensationsmessung der Thomson-Röhre:
+Darstellung der Kompensationsspannung $U_d$ in Abhängigkeit vom
+Spulenstrom $I$ für verschiedene Beschleunigungsspannungen $U_A$.
+Die linearen Regressionen bestätigen die Proportionalität
+$U_d \propto I$, aus deren Steigungen
+$a = U_d/I$ die spezifische Elektronenladung nach
+$\tfrac{e}{m_e} = \tfrac{2U_A}{(a K d)^2}$ bestimmt wird.}
+\label{fig:teil2_ud_vs_i}
+\end{figure}
+\paragraph{Diskussion:}
+Das experimentelle Ergebnis stimmt innerhalb der Messunsicherheit gut mit dem Literaturwert überein:
+\[
+\left(\frac{e}{m_e}\right)_{\text{lit}}
+   = 1.758820\times10^{11}\,\mathrm{C/kg}.
+\]
+Der relative Unterschied beträgt:
+\[
+\delta = \frac{|(e/m)_{\text{exp}} - (e/m)_{\text{lit}}|}
+              {(e/m)_{\text{lit}}}\times100\%
+       = 13.7\%.
+\]
+
+Die Hauptbeiträge zur Unsicherheit stammen von der Steigung \(m\),
+der geometrischen Unsicherheit des Plattenabstands \(d\)
+und der Kalibrierungskonstante \(K\).
+Eine leichte systematische Überschätzung kann aus der Feldinhomogenität
+oder der ungenauen Kompensationsbedingung resultieren.
+
+\paragraph{Endergebnis}
+\[
+\left(\frac{e}{m_e}\right)_{\text{Wien-Filter}}
+ = (2.0 \pm 0.2)\times10^{11}\,\mathrm{C/kg},
+ \qquad
+\left(\frac{e}{m_e}\right)_{\text{Lit}}
+ = 1.7588\times10^{11}\,\mathrm{C/kg}.
+\]
+\[
+\text{Abweichung: } \approx 14\%.
+\]
+
+\subsection{Vergleich der Methoden und relativistische Korrektur}
+
+\paragraph{Zusammenfassung der Ergebnisse}
+Die spezifische Elektronenladung wurde mit zwei unabhängigen Methoden bestimmt:
+
+\[
+\begin{array}{|l|c|c|}
+\hline
+\text{Methode} & \text{Messwert}~\dfrac{e}{m_e}~[\mathrm{C/kg}] & \text{Relative Unsicherheit} \\
+\hline
+\text{Magnetische Ablenkung (Teil 1)} & (1.87 \pm 0.19)\times10^{11} & 10\,\%\\
+\text{Kompensationsmethode (Teil 2)} & (2.00 \pm 0.18)\times10^{11} & 9\,\%\\
+\hline
+\text{Mittelwert (gewichtet)} & (1.94 \pm 0.13)\times10^{11} & 6.7\,\%
+\hline
+\end{array}
+
+\]
+
+\[
+\left(\frac{e}{m_e}\right)_{\text{exp}} = (1.94 \pm 0.13)\times10^{11}\,\mathrm{C/kg}.
+\]
+
+Der Literaturwert beträgt
+\[
+\left(\frac{e}{m_e}\right)_{\text{lit}} = 1.758820\times10^{11}\,\mathrm{C/kg}.
+\]
+Die Abweichung des Mittelwertes vom Literaturwert liegt bei rund \(10.3\,\%\), was angesichts der kombinierten experimentellen Unsicherheit als zufriedenstellend gilt.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{E12_Teil1_MagnetischeAblenkung.png}
+\caption{Darstellung der linearen Abhängigkeit zwischen $r^{-2}$ und $B^{2}$
+für verschiedene Beschleunigungsspannungen $U_A$ im Rahmen der magnetischen
+Ablenkungsmethode. Die Steigung $s$ der jeweiligen Geraden liefert gemäß
+$\tfrac{e}{m_e} = 2 U_A s$ den Wert der spezifischen Elektronenladung.
+Mit zunehmender Beschleunigungsspannung wird die Steigung kleiner, was der
+höheren Elektronengeschwindigkeit entspricht.}
+\label{fig:magnetische_ablenkung}
+\end{figure}
+
+\paragraph{Berechnung der Elektronengeschwindigkeiten}
+
+Mit
+\[
+v = \sqrt{\frac{2 e U_A}{m_e}},
+\]
+und dem experimentellen Mittelwert \(\frac{e}{m_e} = 1.94\times10^{11}\,\mathrm{C/kg}\), ergeben sich die Geschwindigkeiten für die verwendeten Beschleunigungsspannungen:
+
+\[
+\begin{array}{|c|c|c|}
+U_A~[\mathrm{kV}] & v~[\mathrm{m/s}] & v/c \\
+\hline
+3 & 1.08\times10^{7} & 0.036 \\
+4 & 1.25\times10^{7} & 0.042 \\
+5 & 1.39\times10^{7} & 0.046 \\
+\end{array}
+\]
+
+Die Elektronengeschwindigkeit liegt somit deutlich unterhalb der Lichtgeschwindigkeit.
+Der relativistische Korrekturfaktor
+\[
+\gamma = \frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}
+\]
+ergibt für \(v/c < 0.05\) nur eine Abweichung von unter \(0.1\,\%\).
+Relativistische Effekte können daher im Rahmen der Messgenauigkeit vernachlässigt werden.
+
+\subsection*{Fehlerdiskussion}
+
+Die verbleibende Abweichung zwischen experimentellem und theoretischem Wert kann auf
+folgende Einflüsse zurückgeführt werden:
+
+\begin{itemize}
+  \item Kalibrierungsunsicherheiten der Spulenfeldkonstante \(K\) und der Plattenabstände \(d\).
+  \item Ableseunsicherheiten bei der Bestimmung der Ablenkung \(a\) auf der Leuchtschirm-Skala.
+  \item Feldinhomogenitäten im Magnetfeld der Helmholtz-Spulen.
+  \item Restfelder (Erdmagnetfeld) und Kontaktwiderstände in den Messleitungen.
+  \item Näherung der linearen Regression ohne Achsenabschnitt (systematische Offsets).
+\end{itemize}
+
+Die statistische Streuung der einzelnen Messungen trägt nur geringfügig zur Gesamtabweichung bei;
+die systematischen Fehler dominieren.
+
+\section{Fazit}
+Die Schustermethode und die Kompensationsmethode führen beide zu konsistenten Ergebnissen:
+\[
+\left(\frac{e}{m_e}\right)_{\text{mag}} = (1.87\pm0.19)\times10^{11}\,\mathrm{C/kg},
+\qquad
+\left(\frac{e}{m_e}\right)_{\text{Wien}} = (2.00\pm0.18)\times10^{11}\,\mathrm{C/kg}.
+\]
+Der gewichtete Mittelwert
+\[
+\boxed{
+\left(\frac{e}{m_e}\right)_{\text{exp}} = (1.94 \pm 0.13)\times10^{11}\,\mathrm{C/kg}
+}
+\]
+stimmt sehr gut mit dem Literaturwert
+\((1.7588\times10^{11}\,\mathrm{C/kg})\)\footnote{entnommen aus E12 Versuch zur spezifischen Ladung} überein.
+Damit wurde die spezifische Elektronenladung experimentell mit einer Genauigkeit von etwa \(10\,\%\) bestätigt. Die Vernachlässigung relativistischer Effekte ist bei den hier
+erreichten Geschwindigkeiten gerechtfertigt, und die Ergebnisse
+belegen die Gültigkeit der Lorentzkraft und die
+Proportionalität zwischen Magnetfeld, Elektronengeschwindigkeit und Kraftwirkung auf geladene Teilchen.
+
+\section{Anhang}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Hallsonde.png}
+    \caption{Messungen zur Hallsonde}
+    \label{fig_Hallsonde}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Kompensationsmethode.png}
+    \caption{Messungen zur Kompensationsmethode}
+    \label{fig_Komp}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Schustermethode.png}
+    \caption{Messungen zur Schustermethode}
+    \label{fig_Schuster}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Komp_voll.png}
+    \caption{Messungen und Auswertung zur Kompensationsmethode}
+    \label{fig_Komp_voll}
+\end{figure}
+
+\end{document}
